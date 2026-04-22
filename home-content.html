@@ -5,23 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>होम - My Indian Workers</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; padding: 50px; }
-        .home-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 600px; margin: auto; }
-        h1 { color: #2c3e50; }
-        p { color: #555; line-height: 1.6; font-size: 18px; }
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; padding: 5px; margin: 0; }
+        .home-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 500px; margin: auto; }
+        h1 { color: #2c3e50; font-size: 22px; margin-bottom: 20px; }
+        
+        /* स्लाइड शो कंटेनर */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            height: 250px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* स्लाइड की तस्वीरें */
+        .mySlides {
+            display: none; /* शुरुआत में छुपी रहेंगी */
+            width: 100%;
+            height: 100%;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* फोटो को फिट करने के लिए */
+        }
+
+        /* फोटो के ऊपर नाम (Label) */
+        .text-label {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 5px 0;
+            font-weight: bold;
+        }
+
         .highlight { color: #e67e22; font-weight: bold; }
+        p { color: #555; line-height: 1.6; font-size: 16px; }
     </style>
 </head>
 <body>
 
     <div class="home-card">
         <h1>My Indian Workers में आपका स्वागत है</h1>
+        
+
+<div class="slideshow-container">
+
+    <div class="mySlides">
+        <img src="https://i.postimg.cc/CLjr2x3P/1776799003225.png" alt="Plumber">
+        <div class="text-label">प्लंबर (Plumber)</div>
+    </div>
+
+    <div class="mySlides">
+        <img src="https://i.postimg.cc/TPNCSW1m/1776833983987.png" alt="Electrician">
+        <div class="text-label">इलेक्ट्रीशियन</div>
+    </div>
+
+    <div class="mySlides">
+        <img src="https://i.postimg.cc/Pq7QKsVF/1776834317373.png" alt="Carpenter">
+        <div class="text-label">बढ़ई (Carpenter)</div>
+    </div>
+
+    <div class="mySlides">
+        <img src="https://i.postimg.cc/0j0STLnX/1776834754099.png" alt="Mason">
+        <div class="text-label">राजमिस्त्री (Mason)</div>
+    </div>
+
+    <div class="mySlides">
+        <img src="https://i.postimg.cc/k4xRSk0B/1776834903323.png" alt="Painter">
+        <div class="text-label">पेंटर (Painter)</div>
+    </div>
+
+    <div class="mySlides">
+        <img src="https://i.postimg.cc/3Jr0yfny/1776835111045.png" alt="Welder">
+        <div class="text-label">वेल्डर (Welder)</div>
+    </div>
+
+    <div class="mySlides">
+        <img src="https://i.postimg.cc/d1KLJ5hT/1776835198574.png" alt="AC Mechanic">
+        <div class="text-label">एसी मैकेनिक</div>
+    </div>
+
+    <div class="mySlides">
+        <img src="यहाँ_टाइल्स_मिस्त्री_की_फोटो_का_लिंक_डालें" alt="Tiles Mason">
+        <div class="text-label">टाइल्स मिस्त्री</div>
+    </div>
+
+    <div class="mySlides">
+        <img src="यहाँ_मजदूर_की_फोटो_का_लिंक_डालें" alt="Labour">
+        <div class="text-label">मजदूर (Labour)</div>
+    </div>
+
+    <div class="mySlides">
+        <img src="यहाँ_CCTV_की_फोटो_का_लिंक_डालें" alt="CCTV & Smart Home">
+        <div class="text-label">स्मार्ट होम और CCTV</div>
+    </div>
+
+    <div class="mySlides">
+        <img src="यहाँ_कंप्यूटर_रिपेयर_की_फोटो_का_लिंक_डालें" alt="Computer Repair">
+        <div class="text-label">कंप्यूटर और लैपटॉप रिपेयर</div>
+    </div>
+
+    <div class="mySlides">
+        <img src="यहाँ_मोबाइल_रिपेयर_की_फोटो_का_लिंक_डालें" alt="Mobile Repair">
+        <div class="text-label">मोबाइल और टैबलेट रिपेयर</div>
+    </div>
+
+    <div class="mySlides">
+        <img src="यहाँ_गैजेट्स_की_फोटो_का_लिंक_डालें" alt="Electrical Gadgets">
+        <div class="text-label">इलेक्ट्रिकल और गैजेट्स</div>
+    </div>
+
+    <div class="mySlides">
+        <img src="यहाँ_सोलर_पैनल_की_फोटो_का_लिंक_डालें" alt="Solar Panel">
+        <div class="text-label">सोलर पैनल सर्विस</div>
+    </div>
+
+</div>
+
+
         <p>हमारा उद्देश्य भारत के <span class="highlight">कुशल कारीगरों</span> को सीधे <span class="highlight">मालिकों</span> से जोड़ना है।</p>
-        <p>यहाँ आपको बिजली मिस्त्री, प्लंबर, पेंटर और हर तरह के घरेलू काम के लिए सही वर्कर मिलेंगे।</p>
         <hr>
         <p>सच्चा काम, सही दाम!</p>
         <a href="index.html" style="text-decoration: none; color: #2c3e50; font-weight: bold;">← वापस मुख्य पेज पर जाएँ</a>
     </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 5000); // हर 3 सेकंड में फोटो बदलेगी
+        }
+    </script>
 
 </body>
 </html>

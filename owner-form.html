@@ -156,8 +156,23 @@ async function compressAadhar(file) {
 }
 
 // पंजीकरण सबमिट लॉजिक
+
+
+
+// --- इसे जोड़ें (नया वाला - फोटो चेक के साथ) ---
 document.getElementById('ownerForm').addEventListener('submit', async function(e) {
     e.preventDefault();
+    
+    // फाइलें चेक करना (कि चुनी गई हैं या नहीं)
+    const frontFile = document.getElementById('aadharFrontCam').files[0] || document.getElementById('aadharFrontFile').files[0];
+    const backFile = document.getElementById('aadharBackCam').files[0] || document.getElementById('aadharBackFile').files[0];
+
+    // अगर कोई भी एक फाइल गायब है, तो अलर्ट दिखाएं और आगे न बढ़ें
+    if (!frontFile || !backFile) {
+        alert("⚠️ कृपया आधार कार्ड की दोनों फोटो (Front और Back) अपलोड करें!");
+        return; 
+    }
+
     const btn = document.getElementById('ownerSubmitBtn');
     btn.innerText = "⏳ रजिस्ट्रेशन डाटा अपलोड हो रहा है...";
     btn.disabled = true;
@@ -169,18 +184,13 @@ document.getElementById('ownerForm').addEventListener('submit', async function(e
         regCity: document.getElementById('regCity').value
     };
 
-    const frontFile = document.getElementById('aadharFrontCam').files[0] || document.getElementById('aadharFrontFile').files[0];
-    const backFile = document.getElementById('aadharBackCam').files[0] || document.getElementById('aadharBackFile').files[0];
-
     try {
-        if (frontFile) {
-            data.frontFileData = await compressAadhar(frontFile); // कंप्रेस यहाँ हो रहा है
-            data.frontFileName = "Front_" + data.regMobile + "_" + Date.now() + ".jpg";
-        }
-        if (backFile) {
-            data.backFileData = await compressAadhar(backFile); // कंप्रेस यहाँ हो रहा है
-            data.backFileName = "Back_" + data.regMobile + "_" + Date.now() + ".jpg";
-        }
+        // फोटो कंप्रेस और अपलोड के लिए तैयार करना
+        data.frontFileData = await compressAadhar(frontFile);
+        data.frontFileName = "Front_" + data.regMobile + "_" + Date.now() + ".jpg";
+        
+        data.backFileData = await compressAadhar(backFile);
+        data.backFileName = "Back_" + data.regMobile + "_" + Date.now() + ".jpg";
 
         sendData(data, "रजिस्ट्रेशन और फोटो अपलोड सफल! अब आप बुकिंग कर सकते हैं");
     } catch (err) {
@@ -189,6 +199,10 @@ document.getElementById('ownerForm').addEventListener('submit', async function(e
         btn.innerText = "रजिस्टर करें";
     }
 });
+
+
+
+
 
 // बुकिंग और डेटा भेजने के पुराने फंक्शन पहले जैसे ही रहेंगे...
 document.getElementById('bookingForm').addEventListener('submit', function(e) {

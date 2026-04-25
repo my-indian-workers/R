@@ -145,19 +145,24 @@ async function processPayment() {
 
 // UPI ऐप खोलने के लिए कॉमन फंक्शन
 function launchUPI(pa, pn, am) {
-    // pa को चेक करें, अगर सिर्फ नंबर है तो @ybl जोड़ें
-    let finalPa = pa;
-    if(!pa.includes('@')) {
-        finalPa = pa + "@ybl"; 
+    // 1. UPI ID को साफ करें (अगर कोई स्पेस हो तो हटा दें)
+    let finalPa = pa.trim();
+    
+    // 2. अगर सिर्फ मोबाइल नंबर है, तो @ybl जोड़ें
+    if (!finalPa.includes('@')) {
+        finalPa = finalPa + "@ybl";
     }
 
-    // tn = Transaction Note (इससे बैंक को भरोसा होता है)
-    // tr = Transaction Reference ID (एक रैंडम नंबर)
-    const tid = "TID" + Math.floor(Math.random() * 1000000);
-    const url = `upi://pay?pa=${finalPa}&pn=${encodeURIComponent(pn)}&am=${am}&cu=INR&tn=Worker_Payment&tr=${tid}`;
-    
+    // 3. Transaction ID बनाना (इससे बैंक को भरोसा होता है कि पेमेंट असली है)
+    const transactionId = "TXN" + Date.now();
+
+    // 4. Final URL (इसमें mc=5411 और mode=02 मर्चेंट पेमेंट्स के लिए बहुत जरूरी हैं)
+    const url = `upi://pay?pa=${finalPa}&pn=${encodeURIComponent(pn)}&am=${am}&cu=INR&tn=Karigar_Payout&tr=${transactionId}&mc=5411&mode=02&purpose=00`;
+
+    // 5. ऐप खोलना
     window.location.href = url;
 }
+
 
 </script>
 

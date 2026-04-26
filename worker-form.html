@@ -259,7 +259,7 @@ placeholder="अपना शहर लिखें (जैसे: ब्लॉ�
 </div>
 
 <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx7i54hKon1Dizk_ZgP6tpjNolJINeYLxPD4UdncQwMZUpUHgO4GI-NhzSC5o8IpaeZ/exec"; 
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwHQhKVDdh4bDLJKALThmdPjQPQshQMcH1JAOW73WbFzfR5C_4m09qgfpoqjO7fjvg/exec"; 
     const form = document.getElementById('workerForm');
     const modal = document.getElementById('workerModal');
     const confirmBtn = document.getElementById('confirmSubmit');
@@ -278,9 +278,16 @@ placeholder="अपना शहर लिखें (जैसे: ब्लॉ�
         btn.innerText = "⏳ प्रोसेसिंग...";
         btn.disabled = true;
 
-        const formData = new FormData(form);
+        const formData = new FormData(form); 
         const data = {};
-        formData.forEach((value, key) => { data[key] = value; });
+
+        formData.forEach((value, key) => { 
+            data[key] = value; 
+        });
+
+        // मोबाइल नंबर एरर ठीक करने के लिए यहाँ बदलाव किया गया है
+        // नंबर के आगे ' जोड़ने से Google Sheet में #ERROR! नहीं आएगा
+        data.regMobile = "'" + (formData.get('countryCode') || "") + (formData.get('regMobile') || "");
 
         fetch(SCRIPT_URL, {
             method: 'POST',
@@ -291,10 +298,14 @@ placeholder="अपना शहर लिखें (जैसे: ब्लॉ�
             location.reload();
         }).catch(() => {
             alert("कुछ गड़बड़ हुई, दोबारा प्रयास करें।");
+            btn.innerText = "सबमिट करें";
             btn.disabled = false;
         });
     });
 </script>
+
+
+
 
 </body>
 </html>

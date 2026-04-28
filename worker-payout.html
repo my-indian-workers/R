@@ -27,6 +27,33 @@
     
     <form id="payoutForm">
         <input type="text" id="workerName" placeholder="वर्कर का नाम" required>
+        
+        
+        
+<div class="form-group">
+    <label for="workInput" style="display: block; margin-bottom: 8px; font-weight: bold;">
+        अपना काम चुनें (Select Your Work):
+    </label>
+    
+    <select id="workInput" name="regWork" required 
+        style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;">
+        <option value="">-- यहाँ क्लिक करके चुनें --</option>
+        <option value="Plumber">प्लंबर (Plumber)</option>
+        <option value="Electrician">इलेक्ट्रीशियन (Electrician)</option>
+        <option value="Carpenter">बढ़ई (Carpenter)</option>
+        <option value="Mason">राजमिस्त्री (Mason)</option>
+        <option value="Painter">पेंटर (Painter)</option>
+        <option value="Welder">वेल्डर (Welder)</option>
+        <option value="AC Mechanic">एसी मैकेनिक (AC Mechanic)</option>
+        <option value="Tiles Mistri">टाइल्स मिस्त्री (Tiles Mistri)</option>
+        <option value="Labour">मजदूर (Labour)</option>
+        <option value="Other">अन्य (Other)</option>
+    </select>
+</div>
+        
+        
+        
+        
         <input type="number" id="payoutAmount" placeholder="पेमेंट राशि (Amount) ₹" required>
 
         <hr style="margin: 20px 0; border-top: 1px dashed #ccc;">
